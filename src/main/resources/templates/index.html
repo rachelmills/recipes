@@ -5,7 +5,39 @@
     <title>Index page</title>
 </head>
 <body>
-<h1>My Recipes abc def</h1>
+<h1>My Recipes</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <!--<th>Prep time</th>-->
+        <!--<th>Cook time</th>-->
+        <!--<th>Serving</th>-->
+        <!--<th>Source</th>-->
+        <!--<th>URL</th>-->
+        <!--<th>Ingredients</th>-->
+        <!--<th>Directions</th>-->
+        <!--<th>Difficulty</th>-->
+        <!--<th>Image</th>-->
+        <!--<th>Notes</th>-->
+        <!--<th>Categories</th>-->
+    </tr>
+    <tr th:each = "recipe: ${recipes}">
+        <td th:text = ${recipe.id}>1</td>
+        <td th:text = ${recipe.description}>RecipeDescription</td>
+        <!--<td th:text = ${recipe.prepTime}>Rachel</td>-->
+        <!--<td th:text = ${recipe.cookTime}>Mills</td>-->
+        <!--<td th:text = ${recipe.serving}>My books</td>-->
+        <!--<td th:text = ${recipe.url}>My books</td>-->
+        <!--<td th:text = ${recipe.ingredients}>My books</td>-->
+        <!--<td th:text = ${recipe.directions}>My books</td>-->
+        <!--<td th:text = ${recipe.difficulty}>My books</td>-->
+        <!--<td th:text = ${recipe.image}>My books</td>-->
+        <!--<td th:text = ${recipe.notes}>My books</td>-->
+        <!--<td th:text = ${recipe.categories}>My books</td>-->
+    </tr>
+</table>
+
 
 </body>
 </html>

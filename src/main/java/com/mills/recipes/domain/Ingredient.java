@@ -21,6 +21,16 @@ public class Ingredient {
     @ManyToOne  // no cascade so we can delete ingredient without deleting the recipe
     private Recipe recipe;
 
+    private Ingredient() {
+
+    }
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+        this.recipe = recipe;
+    }
+
     public Long getId() {
         return id;
     }
