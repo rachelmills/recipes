@@ -18,14 +18,6 @@ public class Notes {
     @Lob  // jpa will store in clob field in database
     private String recipeNotes;
 
-    private Notes() {
-    }
-
-    public Notes(Recipe recipe, String recipeNotes) {
-        this.recipe = recipe;
-        this.recipeNotes = recipeNotes;
-    }
-
     public Long getId() {
         return id;
     }
