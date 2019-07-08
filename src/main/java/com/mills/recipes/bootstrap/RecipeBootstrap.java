@@ -2,6 +2,7 @@ package com.mills.recipes.bootstrap;
 
 import com.mills.recipes.domain.*;
 import com.mills.recipes.repositories.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ import java.util.logging.Logger;
  * Created by rachelmills on 5/7/19.
  */
 @Component
+@Slf4j
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 
     private RecipeRepository recipeRepository;
@@ -104,6 +106,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         tacos.setServing(4);
         tacos.setSource("what is this field?");
         recipeRepository.save(tacos);
+        log.debug("created recipe for tacos");
     }
 
     private void createGuacamoleRecipe() {
@@ -160,6 +163,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guacamole.setServing(4);
         guacamole.setSource("what is this field?");
         recipeRepository.save(guacamole);
+        log.debug("created recipe for guacomole");
     }
 
     private byte[] convertImageToByteArray(File guacomoleImage) {
