@@ -3,41 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Index page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>-->
 </head>
 <body>
-<h1>My Recipes</h1>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Description</th>
-        <!--<th>Prep time</th>-->
-        <!--<th>Cook time</th>-->
-        <!--<th>Serving</th>-->
-        <!--<th>Source</th>-->
-        <!--<th>URL</th>-->
-        <!--<th>Ingredients</th>-->
-        <!--<th>Directions</th>-->
-        <!--<th>Difficulty</th>-->
-        <!--<th>Image</th>-->
-        <!--<th>Notes</th>-->
-        <!--<th>Categories</th>-->
-    </tr>
-    <tr th:each = "recipe: ${recipes}">
-        <td th:text = ${recipe.id}>1</td>
-        <td th:text = ${recipe.description}>RecipeDescription</td>
-        <!--<td th:text = ${recipe.prepTime}>Rachel</td>-->
-        <!--<td th:text = ${recipe.cookTime}>Mills</td>-->
-        <!--<td th:text = ${recipe.serving}>My books</td>-->
-        <!--<td th:text = ${recipe.url}>My books</td>-->
-        <!--<td th:text = ${recipe.ingredients}>My books</td>-->
-        <!--<td th:text = ${recipe.directions}>My books</td>-->
-        <!--<td th:text = ${recipe.difficulty}>My books</td>-->
-        <!--<td th:text = ${recipe.image}>My books</td>-->
-        <!--<td th:text = ${recipe.notes}>My books</td>-->
-        <!--<td th:text = ${recipe.categories}>My books</td>-->
-    </tr>
-</table>
-
-
+<div class="container-fluid" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header bg-primary text-light">
+                    <h1 class="card-title">My Recipes</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+                        <table class="table table-hover">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>ID</th>
+                                <th>Description</th>
+                                <!--<th>Prep time</th>-->
+                                <!--<th>Cook time</th>-->
+                                <!--<th>Serving</th>-->
+                                <!--<th>Source</th>-->
+                                <!--<th>URL</th>-->
+                                <!--<th>Ingredients</th>-->
+                                <!--<th>Directions</th>-->
+                                <!--<th>Difficulty</th>-->
+                                <!--<th>Image</th>-->
+                                <!--<th>Notes</th>-->
+                                <!--<th>Categories</th>-->
+                            </tr>
+                            </thead>
+                            <tr th:remove="all">
+                                <td th:text=${recipe.id}>1</td>
+                                <td th:text=${recipe.description}>RecipeDescription1</td>
+                            </tr>
+                            <tr th:remove="all">
+                                <td th:text=${recipe.id}>2</td>
+                                <td th:text=${recipe.description}>RecipeDescription2</td>
+                            </tr>
+                            <tr th:each="recipe: ${recipes}">
+                                <td th:text=${recipe.id}>3</td>
+                                <td th:text=${recipe.description}>RecipeDescription3</td>
+                                <!--<td th:text = ${recipe.prepTime}>Rachel</td>-->
+                                <!--<td th:text = ${recipe.cookTime}>Mills</td>-->
+                                <!--<td th:text = ${recipe.serving}>My books</td>-->
+                                <!--<td th:text = ${recipe.url}>My books</td>-->
+                                <!--<td th:text = ${recipe.ingredients}>My books</td>-->
+                                <!--<td th:text = ${recipe.directions}>My books</td>-->
+                                <!--<td th:text = ${recipe.difficulty}>My books</td>-->
+                                <!--<td th:text = ${recipe.image}>My books</td>-->
+                                <!--<td th:text = ${recipe.notes}>My books</td>-->
+                                <!--<td th:text = ${recipe.categories}>My books</td>-->
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
