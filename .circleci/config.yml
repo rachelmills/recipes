@@ -25,12 +25,16 @@ jobs:
 
       # Download and cache dependencies
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+        key: recipes-{{ checksum "pom.xml" }}
+        - run: mvn install -DskipTests
+        - run: mvn dependency:go-offline
 
-      - run: mvn dependency:go-offline
+#          keys:
+#            - v1-dependencies-{{ checksum "pom.xml" }}
+            # fallback to using the latest cache if no exact match is found
+#            - v1-dependencies-
+
+#      - run: mvn dependency:go-offline
 
       - save_cache:
           paths:
@@ -38,4 +42,9 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests!
-      - run: mvn integration-test
+#      - run: mvn integration-test
+# - run: mvn package
+# - store_test_results:
+#path: target/surefire-reports
+# - store_artifacts:
+#path: target/spring5-recipe-app-0.0.1-SNAPSHOT.jar
