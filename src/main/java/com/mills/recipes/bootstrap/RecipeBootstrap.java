@@ -51,25 +51,26 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         Optional<UnitOfMeasure> dash = unitOfMeasureRepository.findByDescription("Dash");
         Optional<UnitOfMeasure> cup = unitOfMeasureRepository.findByDescription("Cup");
         Optional<UnitOfMeasure> pint = unitOfMeasureRepository.findByDescription("Pint");
+        Optional<UnitOfMeasure> each = unitOfMeasureRepository.findByDescription("Each");
 
         tacos.addIngredient(new Ingredient("Chilli powder", new BigDecimal(2), tablespoon.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Dried oregano", new BigDecimal(1), teaspoon.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Dried cumin", new BigDecimal(1), teaspoon.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Sugar", new BigDecimal(1), teaspoon.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Salt", new BigDecimal(0.5), teaspoon.orElseThrow(RuntimeException::new)));
-        tacos.addIngredient(new Ingredient("Garlic", new BigDecimal(1), null));
+        tacos.addIngredient(new Ingredient("Garlic", new BigDecimal(1), each.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Orange zest", new BigDecimal(1), tablespoon.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Orange juice", new BigDecimal(3), tablespoon.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Olive oil", new BigDecimal(2), tablespoon.orElseThrow(RuntimeException::new)));
-        tacos.addIngredient(new Ingredient("Boneliess chicken thighs", new BigDecimal(4), null));
-        tacos.addIngredient(new Ingredient("Corn tortillas", new BigDecimal(8), null));
+        tacos.addIngredient(new Ingredient("Boneliess chicken thighs", new BigDecimal(4), each.orElseThrow(RuntimeException::new)));
+        tacos.addIngredient(new Ingredient("Corn tortillas", new BigDecimal(8), each.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Packed baby arugula", new BigDecimal(3), cup.orElseThrow(RuntimeException::new)));
-        tacos.addIngredient(new Ingredient("Avocado", new BigDecimal(3), null));
-        tacos.addIngredient(new Ingredient("Radish", new BigDecimal(4), null));
+        tacos.addIngredient(new Ingredient("Avocado", new BigDecimal(3), each.orElseThrow(RuntimeException::new)));
+        tacos.addIngredient(new Ingredient("Radish", new BigDecimal(4), each.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Cherry tomatoes", new BigDecimal(0.5), pint.orElseThrow(RuntimeException::new)));
-        tacos.addIngredient(new Ingredient("Red Onion", new BigDecimal(0.25), null));
+        tacos.addIngredient(new Ingredient("Red Onion", new BigDecimal(0.25), each.orElseThrow(RuntimeException::new)));
         tacos.addIngredient(new Ingredient("Sour cream", new BigDecimal(0.5), cup.orElseThrow(RuntimeException::new)));
-        tacos.addIngredient(new Ingredient("Lime", new BigDecimal(1), null));
+        tacos.addIngredient(new Ingredient("Lime", new BigDecimal(1), each.orElseThrow(RuntimeException::new)));
 
         Set<Category> tacoCategories = new HashSet<>();
         Optional<Category> dinner = categoryRepository.findByDescription("Dinner");
@@ -116,15 +117,16 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         Optional<UnitOfMeasure> teaspoon = unitOfMeasureRepository.findByDescription("Teaspoon");
         Optional<UnitOfMeasure> tablespoon = unitOfMeasureRepository.findByDescription("Tablespoon");
         Optional<UnitOfMeasure> dash = unitOfMeasureRepository.findByDescription("Dash");
+        Optional<UnitOfMeasure> each = unitOfMeasureRepository.findByDescription("Each");
 
-        guacamole.addIngredient(new Ingredient("Avocado", new BigDecimal(2), null));
+        guacamole.addIngredient(new Ingredient("Avocado", new BigDecimal(2), each.orElseThrow(RuntimeException::new)));
         guacamole.addIngredient(new Ingredient("Salt", new BigDecimal(0.5), teaspoon.orElseThrow(RuntimeException::new)));
         guacamole.addIngredient(new Ingredient("Lime juice", new BigDecimal(1), tablespoon.orElseThrow(RuntimeException::new)));
         guacamole.addIngredient(new Ingredient("Red Onion", new BigDecimal(2), tablespoon.orElseThrow(RuntimeException::new)));
-        guacamole.addIngredient(new Ingredient("Chilli", new BigDecimal(2), null));
+        guacamole.addIngredient(new Ingredient("Chilli", new BigDecimal(2), each.orElseThrow(RuntimeException::new)));
         guacamole.addIngredient(new Ingredient("Cilantro", new BigDecimal(2), tablespoon.orElseThrow(RuntimeException::new)));
         guacamole.addIngredient(new Ingredient("Black pepper", new BigDecimal(1), dash.orElseThrow(RuntimeException::new)));
-        guacamole.addIngredient(new Ingredient("Tomato", new BigDecimal(0.5), null));
+        guacamole.addIngredient(new Ingredient("Tomato", new BigDecimal(0.5), each.orElseThrow(RuntimeException::new)));
 
         Set<Category> guacamoleCategories = new HashSet<>();
         Optional<Category> mexican = categoryRepository.findByDescription("Mexican");

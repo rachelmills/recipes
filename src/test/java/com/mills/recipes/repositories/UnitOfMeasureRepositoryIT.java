@@ -19,19 +19,19 @@ import static org.junit.Assert.assertEquals;
 @DataJpaTest
 public class UnitOfMeasureRepositoryIT {
 
-        @Autowired
-        private UnitOfMeasureRepository unitOfMeasureRepository;
+    @Autowired
+    private UnitOfMeasureRepository unitOfMeasureRepository;
 
-        @Before
-        public void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
 
-        }
+    }
 
-        @Test
-        public void findByDescription() throws Exception {
-            Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
-            assertEquals("Teaspoon", unitOfMeasureOptional.get().getDescription());
-        }
+    @Test
+    public void findByDescription() throws Exception {
+        Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
+        assertEquals("Teaspoon", unitOfMeasureOptional.get().getDescription());
+    }
 
     @Test
     public void findByDescriptionCup() throws Exception {
